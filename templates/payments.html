@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AutoHire Premium</title>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+
+<h2>Pay ₹499 to unlock AutoHire Pro</h2>
+<button id="pay">Pay Now</button>
+
+<script>
+var options = {
+    key: "{{ razorpay_key }}",
+    amount: "{{ amount }}",
+    currency: "INR",
+    name: "AutoHire Pro",
+    description: "Premium Auto Apply",
+    order_id: "{{ order_id }}",
+    handler: function (response) {
+        window.location = "/verify_payment/{{ user.id }}";
+    }
+};
+
+var rzp = new Razorpay(options);
+document.getElementById("pay").onclick = function () {
+    rzp.open();
+};
+</script>
+
+</body>
+</html>

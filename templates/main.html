@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome to Job Search</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+body{
+    margin:0;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+}
+#header{
+    display:flex;
+    justify-content:space-evenly;
+    align-items:center;
+    padding:20px 0;
+}
+#logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+#logo h1{
+    font-family: Audiowide, cursive;
+}
+#features{
+    display:flex;
+    gap:30px;
+    opacity:0.8;
+}
+#features h2{
+    color:#000;
+    transition:color .4s;
+    font-family: Inter;
+    font-weight:600;
+}
+#features h2:hover{
+    color:#2563eb;
+}
+#creds{
+    display:flex;
+    gap:40px;
+    align-items:center;
+    font-family: Inter;
+}
+#signup{
+    height:55px;
+    width:150px;
+    background:#2563eb;
+    border-radius:15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    transition:background .4s,color .4s;
+    font-family: Inter;
+    font-weight:600;
+}
+#signup:hover{
+    background:#fff;
+    color:#2563eb;
+}
+.hero{
+    height:700px;
+    background: radial-gradient(circle at 20% 30%, rgba(147, 197, 253, 0.6), transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(167,139,250,0.6), transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(196,181,253,0.5), transparent 45%),
+    linear-gradient(to bottom right, #eef5ff, #f3e8ff);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 80px;
+    box-sizing:border-box;
+}
+#intro h1{
+    font-size:80px;
+    font-family:Poppins;
+    font-weight:800;
+}
+#intro p{
+    font-family:Inter;
+}
+#butto{
+    display:flex;
+    gap:30px;
+    margin-top:20px;
+}
+#signup1,#signup2{
+    height:60px;
+    width:200px;
+    border-radius:15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:18px;
+    transition:.4s;
+    font-family:Inter;
+    font-weight:600;
+}
+#signup1{
+    background:#2563eb;
+    color:#fff;
+}
+#signup1:hover{
+    background:#fff;
+    color:#2563eb;
+}
+#signup2{
+    background:#fff;
+    color:#2563eb;
+}
+#signup2:hover{
+    background:#2563eb;
+    color:#fff;
+}
+#image{
+    height:500px;
+    width:620px;
+    padding:20px;
+    border-radius:22px;
+    background:#fff;
+    box-shadow:0 25px 60px rgba(0,0,0,0.12),0 15px 35px rgba(0,0,0,0.06);
+}
+#image img{
+    width:100%;
+    height:auto;
+    border-radius:18px;
+}
+#join-info{
+    display:flex;
+    justify-content:center;
+    opacity:0.6;
+    padding-top:30px;
+    font-family:Inter;
+}
+#join-info-img{
+    display:flex;
+    justify-content:space-evenly;
+    padding:40px 0 60px 0;
+}
+#join-info-img img{
+    height:80px;
+    width:80px;
+}
+.section-title{
+    width:100%;
+    padding-top:75px;
+    padding-bottom:75px;
+    background:linear-gradient(to bottom right,#eef5ff,#f3e8ff);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+}
+.section-title h1{
+    font-size:56px;
+    color:#1f2937;
+    margin-bottom:20px;
+    font-family:Poppins;
+    font-weight:800;
+}
+.section-title p{
+    font-size:18px;
+    opacity:.7;
+    line-height:1.5;
+    font-family:Inter;
+}
+.feature-boxes{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    margin-top:50px;
+}
+.card{
+    width:320px;
+    height:170px;
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 25px 60px rgba(0,0,0,0.1),0 10px 25px rgba(0,0,0,0.06);
+    padding:25px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+.card h2{
+    margin:0;
+    font-size:20px;
+    font-family:Poppins;
+    font-weight:700;
+}
+.card p{
+    opacity:.7;
+    line-height:1.4;
+    font-family:Inter;
+}
+#how{
+    padding-top:30px;
+}
+#wf{
+    font-size:18px;
+    font-family:Inter;
+}
+#wf1{
+    font-size:25px;
+    font-family:Poppins;
+}
+#nums{
+    margin-top:40px;
+    display:flex;
+    justify-content:space-evenly;
+    text-align:center;
+    padding-bottom:80px;
+}
+.ma{
+    width:250px;
+}
+.n{
+    height:50px;
+    width:50px;
+    border-radius:50%;
+    background:rgba(147,197,253,0.5);
+    color:#2563eb;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:auto;
+    font-family:Poppins;
+}
+.ma h2{
+    font-size:22px;
+    font-family:Poppins;
+}
+.ma p{
+    opacity:0.7;
+    font-family:Inter;
+}
+.cta-section{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:50px;
+    margin-bottom:120px;
+}
+.cta-box{
+    width:800px;
+    padding:50px 40px;
+    border-radius:28px;
+    background:#2563eb;
+    text-align:center;
+    color:#fff;
+    position:relative;
+}
+.cta-box::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:28px;
+    background-image:radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px);
+    background-size:18px 18px;
+    pointer-events:none;
+}
+.cta-box h1{
+    font-family:Poppins;
+    font-size:30px;
+    margin:0;
+}
+.cta-box p{
+    font-family:Inter;
+    margin-top:10px;
+    opacity:0.9;
+}
+.cta-buttons{
+    margin-top:25px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+.cta-primary{
+    height:50px;
+    width:180px;
+    border-radius:12px;
+    background:white;
+    color:#2563eb;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Inter;
+    font-weight:600;
+    cursor:pointer;
+}
+.cta-secondary{
+    height:50px;
+    width:160px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.2);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Inter;
+    font-weight:600;
+    border:1px solid rgba(255,255,255,0.4);
+    cursor:pointer;
+}
+.cta-primary:hover{
+    background:#e6ecff;
+}
+.cta-secondary:hover{
+    background:rgba(255,255,255,0.3);
+}
+.cta-note{
+    display:block;
+    margin-top:18px;
+    font-size:13px;
+    opacity:0.9;
+    font-family:Inter;
+}
+.footer{
+    width:100%;
+    background:#ffffff;
+    border-top:1px solid #e5e7eb;
+    padding:60px 140px;
+    box-sizing:border-box;
+}
+.footer-content{
+    display:flex;
+    justify-content:space-between;
+}
+.footer-col{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    font-family:Inter;
+}
+.footer-col h3{
+    font-size:18px;
+    margin:0;
+    font-family:Poppins;
+}
+.footer-col p{
+    opacity:0.7;
+    max-width:260px;
+}
+.footer-col span{
+    opacity:0.7;
+}
+.footer-col h4{
+    font-size:14px;
+    font-family:Inter;
+    opacity:0.8;
+}
+.footer-bottom{
+    margin-top:50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    opacity:0.7;
+    font-family:Inter;
+    font-size:14px;
+}
+</style>
+</head>
+<body>
+
+<div id="header">
+    <div id="logo">
+        <h2>🚀</h2>
+        <h1>AutoHire</h1>
+    </div>
+    <div id="features">
+        <h2>Features</h2>
+        <h2>How it Works</h2>
+        <h2>Pricing</h2>
+    </div>
+    <div id="creds">
+        <a href = "/login"><h2>Login</h2></a>
+        <div id="signup">
+            <a href="/signup"><h2>Get Started</h2></a>
+        </div>
+    </div>
+</div>
+
+<div class="hero">
+    <div id="intro">
+        <h1>Stop Searching.<br><span style="color:#2563eb;">Start Working.</span></h1>
+        <p>AutoHire automates your applications so you can focus on the<br>interview. We scrape, match, and apply to hundreds of relevant<br>jobs daily.</p>
+        <div id="butto">
+            <a href = "">
+                <div id="signup1">Start for Free →</div>
+            </a>
+            <div id="signup2">▶️ Watch Demo</div>
+        </div>
+    </div>
+    <div id="image">
+        <img src="../static/cropped_dashboard.png">
+    </div>
+</div>
+
+<div id="join-info">
+    <h3>JOIN 10,000+ CANDIDATES WHO LANDED JOBS AT</h3>
+</div>
+
+<div id="join-info-img">
+    <img src="../static/search.png">
+    <img src="../static/social.png">
+    <img src="../static/microsoft.png">
+    <img src="../static/ibm.png">
+    <img src="../static/meta.png">
+</div>
+
+<div class="section-title">
+    <h1>Automate Your Job Hunt</h1>
+    <p>Our AI-powered platform handles the tedious parts of job hunting for you,<br>giving you back hours of your day.</p>
+
+    <div class="feature-boxes">
+        <div class="card">
+            <h2>Smart Matching</h2>
+            <p>Our AI analyzes your resume against thousands of listings to find the perfect fit.</p>
+        </div>
+        <div class="card">
+            <h2>Auto-Apply</h2>
+            <p>Fill 100 applications in the time it takes to do one. Forms are auto-filled.</p>
+        </div>
+        <div class="card">
+            <h2>Analytics</h2>
+            <p>Track your success rate, see pipelines, and optimize your strategy.</p>
+        </div>
+    </div>
+</div>
+
+<div id="how">
+    <div id="wf" style="display:flex;justify-content:center;color:#2563eb;">WORKFLOW</div>
+    <div id="wf1" style="display:flex;justify-content:center;"><b><h1>How AutoHire Works</h1></b></div>
+</div>
+
+<div id="nums">
+    <div class="ma">
+        <div class="n"><h3>1</h3></div>
+        <h2>Connect Profile</h2>
+        <p>Upload your resume and link your LinkedIn profile.</p>
+    </div>
+    <div class="ma">
+        <div class="n"><h3>2</h3></div>
+        <h2>Set Preferences</h2>
+        <p>Choose roles, salary expectations, and preferred locations.</p>
+    </div>
+    <div class="ma">
+        <div class="n"><h3>3</h3></div>
+        <h2>AI Matching</h2>
+        <p>We find the best jobs and tailor your application.</p>
+    </div>
+    <div class="ma">
+        <div class="n" style="background:#2563eb;color:white;"><h3>4</h3></div>
+        <h2>Get Hired</h2>
+        <p>Track interviews and offers directly in your dashboard.</p>
+    </div>
+</div>
+
+<div class="cta-section">
+    <div class="cta-box">
+        <h1>Ready to land your next role?</h1>
+        <p>Join thousands of job seekers who have automated their way to success. Start your free trial today.</p>
+        <div class="cta-buttons">
+            <div class="cta-primary">Get Started Now</div>
+            <div class="cta-secondary">View Pricing</div>
+        </div>
+        <span class="cta-note">No commitment required. Cancel anytime.</span>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="footer-content">
+        <div class="footer-col">
+            <h3>AutoHire</h3>
+            <p>The smartest way to find your next job. Automate applications, track your progress, and get hired faster.</p>
+        </div>
+        <div class="footer-col">
+            <h3>Product</h3>
+            <h4>Features</h4>
+            <h4>Pricing</h4>
+            <h4>Chrome Extension</h4>
+            <h4>Success Stories</h4>
+        </div>
+        <div class="footer-col">
+            <h3>Company</h3>
+            <h4>About Us</h4>
+            <h4>Careers</h4>
+            <h4>Blog</h4>
+            <h4>Contact</h4>
+        </div>
+        <div class="footer-col">
+            <h3>Legal</h3>
+            <h4>Privacy</h4>
+            <h4>Terms</h4>
+            <h4>Security</h4>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <span>© 2026 AutoHire Inc. All rights reserved.</span>
+        <span>🐦  💻</span>
+    </div>
+</div>
+
+</body>
+</html>

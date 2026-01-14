@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Forgot Password - AutoHire</title>
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#f1f5f9;
+    font-family:Arial;
+}
+.card{
+    background:white;
+    padding:40px;
+    border-radius:12px;
+    width:360px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+    text-align:center;
+}
+h2{
+    margin-bottom:10px;
+}
+input{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border-radius:8px;
+    border:1px solid #ddd;
+}
+button{
+    width:100%;
+    margin-top:20px;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    font-weight:600;
+}
+.error{
+    color:red;
+    margin-top:12px;
+}
+.success{
+    color:green;
+    margin-top:12px;
+}
+a{
+    display:block;
+    margin-top:15px;
+    color:#2563eb;
+    text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>Forgot Password</h2>
+    <p>Enter your email to receive reset link</p>
+
+    <form method="post">
+        <input type="email" name="email" placeholder="Your Email" required>
+        <button>Send Reset Link</button>
+    </form>
+
+    <div class="error">{{ error }}</div>
+    <div class="success">{{ success }}</div>
+
+    <a href="/login">Back to Login</a>
+</div>
+
+</body>
+</html>
