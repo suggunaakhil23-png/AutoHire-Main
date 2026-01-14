@@ -7,9 +7,14 @@ import requests
 import os
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "autohire-secret"
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///Main1.db"
+# Secret key
+app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", "dev-secret")
+
+# Database (Railway injects DATABASE_URL)
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL", "sqlite:///app.db")
+
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
@@ -67,18 +72,38 @@ def fetch_remotive_jobs(role):
 def home():
     return render_template("main.html")
 
-@app.route("/signup", methods=["GET", "POST"])
+from sqlalchemy.exc import IntegrityError
+
+@app.route("/signup", methods=["POST"])
 def signup():
-    if request.method == "POST":
-        user = User(
-            name=request.form["fullname"],
-            email=request.form["email"],
-            password=generate_password_hash(request.form["password"])
+    name = request.form["name"]
+    email = request.form["email"]
+    password = request.form["password"]
+    existing_user = User.query.filter_by(email=email).first()
+    if existing_user:
+        return render_template(
+            "signup.html",
+            error="Email already registered. Please log in."
         )
+
+    user = User(
+        name=name,
+        email=email,
+        password=generate_password_hash(password)
+    )
+
+    try:
         db.session.add(user)
         db.session.commit()
-        return redirect(url_for("login"))
-    return render_template("signup.html")
+    except IntegrityError:
+        db.session.rollback()
+        return render_template(
+            "signup.html",
+            error="Email already exists."
+        )
+
+    return redirect(url_for("login"))
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
